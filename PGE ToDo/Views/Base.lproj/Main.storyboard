@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--PGE ToDo-->
+        <!--Items-->
         <scene sceneID="fne-gq-uTa">
             <objects>
                 <tableViewController id="0ep-Mq-FJC" customClass="ToDoListViewController" customModule="PGE_ToDo" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                             <outlet property="delegate" destination="0ep-Mq-FJC" id="Kbc-Ac-S87"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="PGE ToDo" id="ZjH-zu-rfJ">
+                    <navigationItem key="navigationItem" title="Items" id="ZjH-zu-rfJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YUJ-bn-Gls">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -51,7 +51,46 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dhs-NE-7pQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1556" y="115.59220389805098"/>
+            <point key="canvasLocation" x="1591" y="116"/>
+        </scene>
+        <!--PGE ToDo-->
+        <scene sceneID="Bhb-Or-pTT">
+            <objects>
+                <tableViewController id="yoN-QR-xG2" customClass="CategoryViewController" customModule="PGE_ToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oqZ-z0-jKm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCategoryCell" id="Vxe-yO-Dab">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vxe-yO-Dab" id="94E-1u-UZk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yoN-QR-xG2" id="Ibh-Pr-mF1"/>
+                            <outlet property="delegate" destination="yoN-QR-xG2" id="nbV-We-JWU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="PGE ToDo" id="i9N-8c-ppD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Vuk-sQ-eyT">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="yoN-QR-xG2" id="oHM-hS-uEw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="0ep-Mq-FJC" kind="show" identifier="goToItems" id="6cx-FL-5hs"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Dz-Qu-nXK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="759" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lad-gR-zHb">
@@ -72,12 +111,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="0ep-Mq-FJC" kind="relationship" relationship="rootViewController" id="895-2F-DaG"/>
+                        <segue destination="yoN-QR-xG2" kind="relationship" relationship="rootViewController" id="lii-8l-feP"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRD-ps-LhE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="616.79999999999995" y="115.59220389805098"/>
+            <point key="canvasLocation" x="-42" y="116"/>
         </scene>
     </scenes>
 </document>

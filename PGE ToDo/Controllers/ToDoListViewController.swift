@@ -104,9 +104,7 @@ class ToDoListViewController: UITableViewController {
     }
     
     // READ DATA
-    func readItems() {
-        
-        let request : NSFetchRequest<Item> = Item.fetchRequest()
+    func readItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
         
         do {
             itemArray = try context.fetch(request)
@@ -154,25 +152,25 @@ class ToDoListViewController: UITableViewController {
 extension ToDoListViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         let request : NSFetchRequest<Item> = Item.fetchRequest()
-        print("Query: \(searchBar.text!)")
 
-        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
-        request.predicate = predicate
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
 
-        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
-        request.sortDescriptors = [sortDescriptor]
+        readItems(with: request)
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-        do {
-            print("Setting up itemArray")
-            itemArray = try context.fetch(request)
-            print("itemArray setup successful")
-        } catch {
-            print("\n=== Error fetching search data from context \(error) ===")
+        if searchBar.text?.count == 0 {
+            readItems()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
         }
-        
-        tableView.reloadData()
-        
+
     }
     
 }
