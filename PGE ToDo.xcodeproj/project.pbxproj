@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB57BD4A218C4B2B000361B8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB57BD49218C4B2B000361B8 /* Item.swift */; };
 		FB77FC70218BC2CB0098793B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77FC6F218BC2CB0098793B /* AppDelegate.swift */; };
 		FB77FC72218BC2CB0098793B /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77FC71218BC2CB0098793B /* ToDoListViewController.swift */; };
 		FB77FC75218BC2CB0098793B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB77FC73218BC2CB0098793B /* Main.storyboard */; };
@@ -17,7 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FB57BD49218C4B2B000361B8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FB77FC6C218BC2CB0098793B /* PGE ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PGE ToDo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB77FC6F218BC2CB0098793B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB77FC71218BC2CB0098793B /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 		FB77FC84218BC3AD0098793B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FB57BD49218C4B2B000361B8 /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,7 +178,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB57BD4A218C4B2B000361B8 /* Item.swift in Sources */,
 				FB77FC72218BC2CB0098793B /* ToDoListViewController.swift in Sources */,
 				FB77FC78218BC2CB0098793B /* PGE_ToDo.xcdatamodeld in Sources */,
 				FB77FC70218BC2CB0098793B /* AppDelegate.swift in Sources */,
