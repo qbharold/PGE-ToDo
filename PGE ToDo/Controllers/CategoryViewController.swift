@@ -13,6 +13,7 @@ class CategoryViewController: UITableViewController {
 
     //MARK: - Category Variables
     var categoryArray = [Category]()
+
     
     //MARK: - Category Constants
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Categories.plist")
@@ -46,45 +47,43 @@ class CategoryViewController: UITableViewController {
         
         cell.textLabel?.text = category.name
         
-        //Ternary Operator - value = condition ? valueIfTrue : valueIfFalse
-        //cell.accessoryType = item.done == true ? .checkmark : .none
-        
         return cell
     }
     
     //MARK: - TableView Delegate Methods
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToItems", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! ToDoListViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedCategory = categoryArray[indexPath.row]
+        }
+    }
+    
     //MARK: - CRUD - Data Manipulation Methods
     
     func saveCategory() {
-        print("\n=== Running function saveCategory ===")
         do {
             try context.save()
         } catch {
             print("\n=== Error saving Category context \(error) ===")
         }
-        print("\n=== Reload data ===")
         self.tableView.reloadData()
     }
 
     func createCategory() {
-        print("Set VAR Category")
+
         var categoryTextField = UITextField()
-
-        print("Set Category Alert Title")
         let alert = UIAlertController(title: "Add New To Do Category", message: "", preferredStyle: .alert)
-
-        print("Set Category Alert Action")
         let action = UIAlertAction(title: "Add Category", style: .default) { (action) in
-            //What will happen when the user clicks the Add Item button on our UIAlert
-            
-            print("\n=== Set newCategory values ===")
             
             let newCategory = Category(context: self.context)
             newCategory.name = categoryTextField.text!
-            // newCategory.done = false
             self.categoryArray.append(newCategory)
-            print("\n=== Save new item ===")
             self.saveCategory()
             
         }
@@ -118,15 +117,6 @@ class CategoryViewController: UITableViewController {
     }
 
     func deleteCategory() {
-        
-//            print("\n=== Deleting data... ===")
-//            context.delete(categoryArray[indexPath.row])
-//            categoryArray.remove(at: indexPath.row)
-//
-//            print("=== Data deleted ===")
-//            saveCategory()
-//
-//            tableView.deselectRow(at: indexPath, animated: true)
 
     }
 
