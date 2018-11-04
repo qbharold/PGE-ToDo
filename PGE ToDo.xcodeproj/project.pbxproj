@@ -12,9 +12,10 @@
 		FB77FC70218BC2CB0098793B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77FC6F218BC2CB0098793B /* AppDelegate.swift */; };
 		FB77FC72218BC2CB0098793B /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77FC71218BC2CB0098793B /* ToDoListViewController.swift */; };
 		FB77FC75218BC2CB0098793B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB77FC73218BC2CB0098793B /* Main.storyboard */; };
-		FB77FC78218BC2CB0098793B /* PGE_ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB77FC76218BC2CB0098793B /* PGE_ToDo.xcdatamodeld */; };
 		FB77FC7A218BC2CD0098793B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB77FC79218BC2CD0098793B /* Assets.xcassets */; };
 		FB77FC7D218BC2CD0098793B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB77FC7B218BC2CD0098793B /* LaunchScreen.storyboard */; };
+		FB9569F4218E8E5D00806AD8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9569F3218E8E5D00806AD8 /* Item.swift */; };
+		FB9569F6218E8E6600806AD8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9569F5218E8E6600806AD8 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +27,11 @@
 		FB77FC6F218BC2CB0098793B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB77FC71218BC2CB0098793B /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		FB77FC74218BC2CB0098793B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FB77FC77218BC2CB0098793B /* PGE_ToDo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PGE_ToDo.xcdatamodel; sourceTree = "<group>"; };
 		FB77FC79218BC2CD0098793B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB77FC7C218BC2CD0098793B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB77FC7E218BC2CD0098793B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB9569F3218E8E5D00806AD8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		FB9569F5218E8E6600806AD8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +113,8 @@
 		FB77FC86218BC3BA0098793B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FB77FC71218BC2CB0098793B /* ToDoListViewController.swift */,
 				FB243929218D8517003BD11A /* CategoryViewController.swift */,
+				FB77FC71218BC2CB0098793B /* ToDoListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -129,7 +131,8 @@
 		FB77FC88218BC5470098793B /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				FB77FC76218BC2CB0098793B /* PGE_ToDo.xcdatamodeld */,
+				FB9569F5218E8E6600806AD8 /* Category.swift */,
+				FB9569F3218E8E5D00806AD8 /* Item.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -208,15 +211,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-PGE ToDo-checkManifestLockResult.txt",
 			);
@@ -230,16 +229,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PGE ToDo/Pods-PGE ToDo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -256,10 +251,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB9569F4218E8E5D00806AD8 /* Item.swift in Sources */,
 				FB24392A218D8517003BD11A /* CategoryViewController.swift in Sources */,
 				FB77FC72218BC2CB0098793B /* ToDoListViewController.swift in Sources */,
-				FB77FC78218BC2CB0098793B /* PGE_ToDo.xcdatamodeld in Sources */,
 				FB77FC70218BC2CB0098793B /* AppDelegate.swift in Sources */,
+				FB9569F6218E8E6600806AD8 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,19 +459,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FB77FC76218BC2CB0098793B /* PGE_ToDo.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FB77FC77218BC2CB0098793B /* PGE_ToDo.xcdatamodel */,
-			);
-			currentVersion = FB77FC77218BC2CB0098793B /* PGE_ToDo.xcdatamodel */;
-			path = PGE_ToDo.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FB77FC64218BC2CB0098793B /* Project object */;
 }
