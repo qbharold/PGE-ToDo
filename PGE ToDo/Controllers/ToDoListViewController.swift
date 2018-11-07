@@ -9,12 +9,12 @@
 import UIKit
 import RealmSwift
 
-class ToDoListViewController: UITableViewController {
+class ToDoListViewController: SwipeTableViewController {
 
-    // Constants
+    //MARK: - Item Constants
     let realm = try! Realm()
     
-    //Variables
+    //MARK: - Item Variables
     var toDoItems: Results<Item>?
     
     var selectedCategory : Category? {
@@ -23,25 +23,30 @@ class ToDoListViewController: UITableViewController {
         }
     }
 
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
-        // readItems()
-
+        
+                tableView.rowHeight = 80.0
+        
     }
 
-    //MARK: - TableView Datasource Methods
     
+    
+    //MARK: - TableView Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return toDoItems?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        
         if let item = toDoItems?[indexPath.row] {
+
             cell.textLabel?.text = item.title
+
             cell.accessoryType = item.done == true ? .checkmark : .none
         } else {
                 cell.textLabel?.text = "No Items Added"
@@ -49,6 +54,7 @@ class ToDoListViewController: UITableViewController {
         
         return cell
     }
+    
     
     //MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -127,19 +133,19 @@ class ToDoListViewController: UITableViewController {
     }
 
     // DELETE DATA
-    func deleteItems() {
+    override func updateModel(at indexPath: IndexPath) {
         
-//        // Update - Mark ToDo as Deleted
-//        if let item = toDoItems? [indexPath.row] {
-//            do {
-//                try realm.write {
-//                    realm.delete(item)
-//                }
-//            } catch {
-//                print("Error deleting ToDo Item, \(error)")
-//            }
-//        }
-        
+        if let itemForDeletion = self.toDoItems?[indexPath.row] {
+            do {
+                try self.realm.write {
+                    self.realm.delete(itemForDeletion)
+                    print("Item was deleted.")
+                }
+            } catch {
+                print("Error deleting item, \(error)")
+            }
+            
+        }
     }
 
     // SAVE DATA
