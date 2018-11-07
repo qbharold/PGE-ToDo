@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class CategoryViewController: SwipeTableViewController {
 
@@ -17,26 +18,18 @@ class CategoryViewController: SwipeTableViewController {
     //MARK: - Category Variables
     var categories: Results<Category>?
     
-
-
-
-
-
-
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
         readCategory()
         tableView.rowHeight = 80.0
-        
+        tableView.separatorStyle = .none
     }
 
     //MARK: - Add New Categories
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        
         createCategory()
-        
     }
     
     //MARK: - TableView Datasource Methods
@@ -47,11 +40,16 @@ class CategoryViewController: SwipeTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        
-        cell.textLabel?.text = categories?[indexPath.row].name ?? "No categories added yet"
-        
+       
+        if let category = categories?[indexPath.row] {
+
+            guard let categoryColor = UIColor(hexString: category.rowColor) else {fatalError()}
+            
+            cell.textLabel?.text = categories?[indexPath.row].name ?? "No categories added yet"
+            cell.backgroundColor = UIColor(hexString: categories?[indexPath.row].rowColor ?? "1D9BF6")
+            cell.textLabel?.textColor = ContrastColorOf(categoryColor, returnFlat: true)
+        }
         return cell
-        
     }
     
     //MARK: - TableView Delegate Methods
@@ -90,6 +88,7 @@ class CategoryViewController: SwipeTableViewController {
             
             let newCategory = Category()
             newCategory.name = categoryTextField.text!
+            newCategory.rowColor = UIColor.randomFlat.hexValue()
             
             self.save(category: newCategory)
             
@@ -114,7 +113,7 @@ class CategoryViewController: SwipeTableViewController {
     }
 
     func updateCategory() {
-
+        //Deprecated
     }
 
      override func updateModel(at indexPath: IndexPath) {
@@ -128,12 +127,8 @@ class CategoryViewController: SwipeTableViewController {
             } catch {
                 print("Error deleting category, \(error)")
             }
-            
         }
     }
-        
-
-
 }
 
 

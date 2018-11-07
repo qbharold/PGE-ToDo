@@ -99,6 +99,8 @@
 		FB77FC84218BC3AD0098793B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FB9569F3218E8E5D00806AD8 /* Item.swift */,
+				FB9569F5218E8E6600806AD8 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,8 +136,6 @@
 		FB77FC88218BC5470098793B /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				FB9569F5218E8E6600806AD8 /* Category.swift */,
-				FB9569F3218E8E5D00806AD8 /* Item.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -234,12 +234,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PGE ToDo/Pods-PGE ToDo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
